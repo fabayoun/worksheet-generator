@@ -42,7 +42,12 @@ class WorksheetGenerator:
         logging.error(self.answers)
         logging.error(self.outputs)
 
-
+    def _get_correct_question_prompt_based_on_type(self):
+        if self.question_type == "factual":
+            return f"Write {self.number_of_questions} questions in the following style: {self.question_type}. The questions must be based solely on the text below\n\nText: {self.context}\n\nQuestions:\n",
+        if self.question_type == "exploratory":
+            return f"Write {self.number_of_questions} open-ended questions that explore and analyse themes. The questions must be based solely on the text below\n\nText: {self.context}\n\nQuestions:\n",
+        raise ValueError("incorrect question type")
 
     def _generate_test_question(self):
         """
@@ -54,8 +59,8 @@ class WorksheetGenerator:
         openai.organization = config.get("OPENAI_API_ORG_ID")
         resp = openai.Completion.create(
             engine="text-curie-001",
-            prompt=f"Write {self.number_of_questions} questions based solely on the text below\n\nText: {self.context}\n\nQuestions:\n",
-            temperature=0.1,
+            prompt=self._get_correct_question_prompt_based_on_type(),
+            temperature=0.5,
             max_tokens=512,
             top_p=1,
             frequency_penalty=0,

@@ -10,7 +10,7 @@ def main():
     app = Flask(__name__)
     CORS(app)
 
-    @app.route('/', methods=['PUT'])
+    @app.route('/', methods=['GET'])
     def get_worksheet_input() -> str:
         # json_file = request.get_json()
         json_file = {

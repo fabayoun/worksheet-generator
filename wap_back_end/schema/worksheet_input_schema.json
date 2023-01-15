@@ -17,7 +17,7 @@
     "type": {
       "description": "type of question asked",
       "type": "string",
-      "required": ["factual", "convergent", "divergent", "evaluative", "combination"]
+      "required": ["factual", "exploratory"]
     },
     "numberOfQuestions": {
       "description": "how many questions to generate",
