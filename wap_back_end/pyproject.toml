@@ -12,6 +12,8 @@ python-dotenv = "^0.21.0"
 Flask = "^2.2.2"
 Flask-Cors = "^3.0.10"
 numpy = "^1.24.1"
+scikit-learn = "^1.2.0"
+sentence-transformers = "^"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

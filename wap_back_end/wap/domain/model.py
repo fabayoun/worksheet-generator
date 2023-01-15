@@ -8,6 +8,9 @@ import attr
 from dotenv import dotenv_values
 import numpy as np
 
+from wap.answer_checker.answer_checker import calculate_cosine_similarity
+
+
 @attr.dataclass
 class WorksheetOutput:
     question: str = None
@@ -68,24 +71,33 @@ class WorksheetGenerator:
             presence_penalty=0,
             stop=["\n\n"]
         )
-
         return self._split_questions(resp["choices"][0]["text"])
 
     def _generate_test_answers(self):
         answers = []
         for question in self.questions:
-            resp = openai.Completion.create(
-                engine="text-curie-001",
-                prompt=f"Write the answer to the below question based on the text below\n\nText: {self.context}\n\nQuestion:\n{question}\n\nAnswer:\n",
-                temperature=0.1,
-                max_tokens=256,
-                top_p=1,
-                frequency_penalty=0,
-                presence_penalty=0,
-                stop=["\n\n"]
-            )
-            answers.append(resp["choices"][0]["text"])
+            answer = self._get_answer_response(question)
+            similarity = calculate_cosine_similarity(answer, self.context)
+            if similarity > 0.7:
+                answers.append(answer)
+            else:
+                answer += f" Note: This answer has a similarity of {similarity} and might be using information outside of the context given."
+                answers.append(answer)
         return answers
+
+    def _get_answer_response(self, question):
+        resp = openai.Completion.create(
+            engine="text-curie-001",
+            prompt=f"Write the answer to the below question based on the text below\n\nText: {self.context}\n\nQuestion:\n{question}\n\nAnswer:\n",
+            temperature=0.1,
+            max_tokens=256,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0,
+            stop=["\n\n"]
+        )
+        answer = resp["choices"][0]["text"]
+        return answer
 
     def _split_questions(self, raw_questions: str):
         try:
