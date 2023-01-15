@@ -1,0 +1,28 @@
+{
+  "$schema": "123",
+  "$id": "123",
+  "title": "worksheetInput",
+  "description": "Input for generative ai to create a worksheet",
+  "type": "object",
+  "properties": {
+    "context": {
+      "description": "Input text that gives context",
+      "type": "string"
+    },
+    "level": {
+      "description": "question difficulty level",
+      "type": "string",
+      "required": ["gcse", "aLevel", "university"]
+    },
+    "type": {
+      "description": "type of question asked",
+      "type": "string",
+      "required": ["factual", "convergent", "divergent", "evaluative", "combination"]
+    },
+    "numberOfQuestions": {
+      "description": "how many questions to generate",
+      "type": "number"
+    }
+  },
+  "required": ["context", "level" , "type"]
+}
