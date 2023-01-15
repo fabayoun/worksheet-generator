@@ -112,7 +112,7 @@ class WorksheetGenerator:
         return json_string
 
     def _convert_to_dict(self, output: WorksheetOutput):
-        return {f"{output.question}": f"{output.answer}"}
+        return [f"{output.question}", f"{output.answer}"]
 
 
 

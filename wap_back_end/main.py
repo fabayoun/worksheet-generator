@@ -1,7 +1,6 @@
 from dotenv import dotenv_values
 from flask import Flask, request
 from flask_cors import CORS
-import logging
 
 from wap.domain.model import WorksheetGenerator
 
