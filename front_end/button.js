@@ -16,12 +16,10 @@ function clickButton() {
         'numberOfQuestions': no_of_questions
     };
 
-    console.log(JsonHeaders)
+    console.log(JsonHeaders);
 
-    var json_response = fetch("http://127.0.0.1:5000").then(response =>
-        response.text()).then(data => data)
-
-    console.log(data)
+    fetch("http://127.0.0.1:9000").then(response =>
+        response.json()).then(data => console.log(data["list"][0]))
 }
 
 function obtain_level(element_id_name) {
