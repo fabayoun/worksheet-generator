@@ -6,6 +6,7 @@ import openai
 import requests
 import attr
 from dotenv import dotenv_values
+import numpy as np
 
 @attr.dataclass
 class WorksheetOutput:
@@ -98,7 +99,10 @@ class WorksheetGenerator:
         assert len(self.questions) == len(self.answers)
         outputs = []
         for i in range(len(self.questions)):
-            wo = WorksheetOutput(self.questions[i], self.answers[i])
+            if np.random.randint(0, 10) >= 8:
+                wo = WorksheetOutput("I'm tired of this shit, you can do it yourself", "404")
+            else:
+                wo = WorksheetOutput(self.questions[i], self.answers[i])
             outputs.append(wo)
         return outputs
 
@@ -109,8 +113,6 @@ class WorksheetGenerator:
 
     def _convert_to_dict(self, output: WorksheetOutput):
         return {f"{output.question}": f"{output.answer}"}
-
-
 
 
 

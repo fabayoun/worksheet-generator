@@ -1,0 +1,46 @@
+/* Applies to the entire body of the HTML document (except where overridden by more specific
+selectors). */
+body {
+    /*margin: 25px; */
+    background-color: rgb(240, 240, 240);
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    margin-top: 50px;
+}
+
+/* Applies to all <h1>...</h1> elements. */
+h1 {
+    font-size: 35px;
+    font-weight: normal;
+}
+
+.input_table {
+    border-collapse: separate;
+    border-spacing: 1em;
+}
+
+.buttonHolder {
+    text-align: center;
+}
+
+.title_tr {
+    text-align: center;
+}
+
+.submit_button {
+    opacity: 0.8;
+    margin: auto;
+    width: 50%;
+    border: 1px solid green;
+    padding: 10px;
+}
+
+.submit_button:hover {
+    color: #0062FF;
+    border: #0062FF solid 1px;
+    background: #FFFF99;
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}

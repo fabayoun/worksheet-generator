@@ -260,6 +260,14 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "numpy"
+version = "1.24.1"
+description = "Fundamental package for array computing in Python"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[[package]]
 name = "openai"
 version = "0.26.1"
 description = "Python client library for the OpenAI API"
@@ -495,7 +503,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "flake8 (<5)", "pytest-co
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "3523e8f3b3163f688522b9b60f99587a5f50c0eed8011612c750aba63c8c3787"
+content-hash = "c357eb7ba30dae97a01cde98e00f0f78df5d2a800d6d246d84ba08ee0cc0b54a"
 
 [metadata.files]
 aiohttp = []
@@ -524,6 +532,7 @@ mypy-extensions = [
     {file = "mypy_extensions-0.4.3-py2.py3-none-any.whl", hash = "sha256:090fedd75945a69ae91ce1303b5824f428daf5a028d2f6ab8a299250a846f15d"},
     {file = "mypy_extensions-0.4.3.tar.gz", hash = "sha256:2d82818f5bb3e369420cb3c4060a7970edba416647068eb4c5343488a6c604a8"},
 ]
+numpy = []
 openai = []
 packaging = []
 pathspec = []
