@@ -103,7 +103,7 @@ class WorksheetGenerator:
         return outputs
 
     def output_json(self) -> str:
-        content = [self._convert_to_dict(output) for output in self.outputs]
+        content = {"list": [self._convert_to_dict(output) for output in self.outputs]}
         json_string = json.dumps(content)
         return json_string
 
