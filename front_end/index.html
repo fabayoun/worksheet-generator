@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <tr class="title_tr">
+
+            <td class="title_table">
+                <img src="generator.png">
+            </td>
+            <td class="title_table">
+                <h1>Worksheet Generator</h1>
+            </td>
+
+        </tr>
+
+    </table>
+
+    <table class="input_table">
+        <tr>
+            <td>
+                <h5>Please insert text :</h5>
+            </td>
+            <td>
+                <textarea name="Text1" cols="100" rows="8" id="context"></textarea>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <h5> Level: </h5>
+            </td>
+            <td>
+                <form id="level_radio">
+                    <input type="radio" id="gcse" name="learning_level" value="GCSE"> </label>
+                    <label for="html">GCSE</label><br>
+                    <input type="radio" id="A level" name="learning_level" value="A level">
+                    <label for="html">A level</label><br>
+                    <input type="radio" id="University" name="learning_level" value="University">
+                    <label for="html">University</label><br>
+                </form>
+            </td>
+
+
+        </tr>
+        <tr>
+            <td>
+                <h5> Type of Q: </h5>
+            </td>
+            <td>
+                <form id="type_radio">
+                    <input type="radio" id="Factual" name="learning_level" value="Factual"> </label>
+                    <label for="html">Factual</label><br>
+                    <input type="radio" id="Convergent" name="learning_level" value="Convergent">
+                    <label for="html">Convergent</label><br>
+                    <input type="radio" id="Divergent" name="learning_level" value="Divergent">
+                    <label for="html">Divergent</label><br>
+                    <input type="radio" id="Evaluative" name="learning_level" value="Evaluative">
+                    <label for="html">Evaluative</label><br>
+                    <input type="radio" id="Combination" name="learning_level" value="Combination">
+                    <label for="html">Combination</label><br>
+
+                </form>
+            </td>
+
+        </tr>
+        <tr>
+            <td> Number of Qs:
+            </td>
+            <td>
+                <form>
+                    <input type="text" id="number_of_questions" name="questions">
+                </form>
+            </td>
+        </tr>
+
+
+    </table>
+
+    <div class="buttonHolder">
+        <button type="button" id="idBtn"> Generate form </button>
+    </div>
+
+    <hr>
+    <t2> Output </t2>
+
+    <p> Question 1: </p>
+    <p> Question 2: </p>
+    <p> Question 3: </p>
+
+
+
+    <script src="index.js"> </script>
+    <script src="button.js"> </script>
+</body>
+
+</html>
