@@ -77,12 +77,7 @@ class WorksheetGenerator:
         answers = []
         for question in self.questions:
             answer = self._get_answer_response(question)
-            similarity = calculate_cosine_similarity(answer, self.context)
-            if similarity > 0.7:
-                answers.append(answer)
-            else:
-                answer += f" Note: This answer has a similarity of {similarity} and might be using information outside of the context given."
-                answers.append(answer)
+            answers.append(answer)
         return answers
 
     def _get_answer_response(self, question):
